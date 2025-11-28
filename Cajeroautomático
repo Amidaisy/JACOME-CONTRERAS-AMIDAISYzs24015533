@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+public class Cajeroautomático{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int opcion;
+        double adeudo = 1000;
+        String continuar = "si";
+
+        while (continuar.equalsIgnoreCase("si")) {
+            System.out.println("\n--- Cajero CFE ---");
+            System.out.println("1. Consulta");
+            System.out.println("2. Pago del mes");
+            System.out.println("3. Pago de adeudo");
+            System.out.println("4. Salir");
+            System.out.print("Elige una opción: ");
+            opcion = sc.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    System.out.println("Tu adeudo actual es: $" + adeudo);
+                    break;
+
+                case 2:
+                    System.out.println("Pago del mes realizado. Adeudo: $" + adeudo);
+                    break;
+
+                case 3:
+                    System.out.println("Pagaste el adeudo completo de $" + adeudo);
+                    adeudo = 0;
+                    break;
+
+                case 4:
+                    System.out.println("Gracias por usar el cajero.");
+                    return;
+
+                default:
+                    System.out.println("Opción no válida.");
+            }
+
+            System.out.print("¿Deseas realizar otra operación? (si/no): ");
+            continuar = sc.next();
+        }
+
+        System.out.println("Gracias por usar el cajero. Hasta luego.");
+    }
+}
