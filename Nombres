@@ -1,0 +1,10 @@
+public class Nombres{
+    public static void main(String[] args) {
+        String[] nombres = {"Ana","Luis","Pedro","Maria","Jose","Karla","Rosa","Juan","Elena","Marco"};
+        int i = 0;
+	while (i < 10) {
+            System.out.println(nombres[i]);
+            i++;
+       	}
+    }
+}
