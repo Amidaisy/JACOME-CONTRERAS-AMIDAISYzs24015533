@@ -1,0 +1,13 @@
+public class Ahorromensual{
+    public static void main(String[] args) {
+        double ahorro = 0;
+
+        for (int mes = 1; mes <= 12; mes++) {
+            ahorro += 500;               
+            ahorro += ahorro * 0.09;    
+            System.out.println("Mes " + mes + " → Ahorro acumulado: $" + ahorro);
+        }
+
+        System.out.println("Ahorro total después de 1 año: $" + ahorro);
+    }
+}
