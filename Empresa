@@ -1,0 +1,33 @@
+import java.util.Scanner;
+public class Empresa{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String[] nombres = new String[4];
+        double[][] sueldos = new double[4][3];
+        double[] totales = new double[4];
+
+        for (int i = 0; i < 4; i++) {
+            System.out.print("Nombre del empleado " + (i + 1) + ": ");
+            nombres[i] = sc.next();
+
+            for (int j = 0; j < 3; j++) {
+                System.out.print("Sueldo mes " + (j + 1) + ": ");
+                sueldos[i][j] = sc.nextDouble();
+                totales[i] += sueldos[i][j];
+            }
+        }
+
+        double totalGeneral = 0;
+        int mayor = 0;
+
+        for (int i = 0; i < 4; i++) {
+            totalGeneral += totales[i];
+            if (totales[i] > totales[mayor]) mayor = i;
+        }
+
+        System.out.println("\nTotal pagado en sueldos: $" + totalGeneral);
+        System.out.println("Empleado con mayor ingreso: " + nombres[mayor] +
+                " con $" + totales[mayor]);
+    }
+}
