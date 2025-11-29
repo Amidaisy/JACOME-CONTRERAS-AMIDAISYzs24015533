@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class Temperaturamedia{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String[] paises = new String[4];
+        double[][] temps = new double[4][3];
+        double[] medias = new double[4];
+
+        for (int i = 0; i < 4; i++) {
+            System.out.print("Nombre del país " + (i + 1) + ": ");
+            paises[i] = sc.next();
+
+            for (int j = 0; j < 3; j++) {
+                System.out.print("Temperatura mes " + (j + 1) + ": ");
+                temps[i][j] = sc.nextDouble();
+                medias[i] += temps[i][j];
+            }
+            medias[i] /= 3;
+        }
+
+        int mayor = 0;
+
+        System.out.println("\nTemperaturas ingresadas:");
+        for (int i = 0; i < 4; i++) {
+            System.out.print(paises[i] + ": ");
+            for (int j = 0; j < 3; j++) {
+                System.out.print(temps[i][j] + " ");
+            }
+            System.out.println(" | Media trimestral: " + medias[i]);
+
+            if (medias[i] > medias[mayor]) mayor = i;
+        }
+
+        System.out.println("\nPaís con mayor media trimestral: " +
+                paises[mayor] + " (" + medias[mayor] + ")");
+    }
+}
+
