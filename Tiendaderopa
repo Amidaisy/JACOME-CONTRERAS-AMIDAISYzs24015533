@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class Tiendaderopa {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String[][] ropa = new String[3][3];
+
+        for (int i = 0; i < 3; i++) {
+            System.out.print("Artículo (Camisa/Zapato/Pantalón): ");
+            ropa[i][0] = sc.next();
+
+           
+            if (ropa[i][0].equalsIgnoreCase("Camisa")) {
+
+                String talla;
+                do {
+                    System.out.print("Talla (C/M/G): ");
+                    talla = sc.next().toUpperCase();
+
+                    if (!talla.equals("C") && !talla.equals("M") && !talla.equals("G")) {
+                        System.out.println("Talla inválida. Solo se permite C, M o G.");
+                    }
+                } while (!talla.equals("C") && !talla.equals("M") && !talla.equals("G"));
+
+                ropa[i][1] = talla; // Guardar talla válida
+
+            } else {
+                 System.out.print("Talla: ");
+                ropa[i][1] = sc.next();
+            }
+
+            System.out.print("Color: ");
+            ropa[i][2] = sc.next();
+
+            System.out.println();
+        }
+
+       
+        System.out.println("\nArtículo\tTalla\tColor");
+        for (int i = 0; i < 3; i++) {
+            System.out.println(ropa[i][0] + "\t\t" + ropa[i][1] + "\t" + ropa[i][2]);
+        }
+    }
+}
