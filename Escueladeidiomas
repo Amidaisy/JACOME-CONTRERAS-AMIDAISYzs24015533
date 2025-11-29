@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class Escueladeidiomas{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int[][] matriz = new int[3][4];
+
+        for (int i = 0; i < 12; i++) {
+            System.out.print("Nivel (0=básico,1=medio,2=perfeccionamiento): ");
+            int nivel = sc.nextInt();
+            System.out.print("Idioma (0=Ing,1=Fra,2=Ale,3=Rus): ");
+            int idioma = sc.nextInt();
+
+            matriz[nivel][idioma]++;
+        }
+
+        System.out.println("\nMatriz de alumnos:");
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 4; j++) {
+                System.out.print(matriz[i][j] + "\t");
+            }
+            System.out.println();
+        }
+    }
+}
