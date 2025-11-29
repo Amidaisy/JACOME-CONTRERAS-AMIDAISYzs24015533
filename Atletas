@@ -1,0 +1,37 @@
+import java.util.Scanner;
+public class Atletas {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String[][] atletas = new String[5][3];
+        double[] tiempos = new double[5];
+
+        for (int i = 0; i < 5; i++) {
+            System.out.print("Nombre: ");
+            atletas[i][0] = sc.next();
+
+            System.out.print("Apellido: ");
+            atletas[i][1] = sc.next();
+
+            System.out.print("Especialidad: ");
+            atletas[i][2] = sc.next();
+
+            System.out.print("Tiempo registrado: ");
+            tiempos[i] = sc.nextDouble();
+        }
+
+        int mejor = 0;
+        for (int i = 1; i < 5; i++) {
+            if (tiempos[i] < tiempos[mejor]) mejor = i;
+        }
+
+        System.out.println("\nNombre\tApellido\tEspecialidad\tTiempo");
+        for (int i = 0; i < 5; i++) {
+            System.out.println(atletas[i][0] + "\t" +
+                    atletas[i][1] + "\t\t" +
+                    atletas[i][2] + "\t\t" +
+                    tiempos[i] +
+                    (i == mejor ? "  <-- Mejor tiempo" : ""));
+        }
+    }
+}
